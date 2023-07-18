@@ -1,0 +1,31 @@
+
+Preamble: this file will contain development notes regarding building this application. 
+It should help understanding my learning process and justifying design decisions, as
+well as recognizing mistakes. It is a mortal's homage to J. Carmack's legendary .plan 
+files from the 90s. 
+In english for practice and /reach/ 
+
+
+2023
+------------------------------------------
+Jul 18th 
++**Created component to get organization data**
+    - this is a workaround based on flawed model design for Facilities, as they should contain the organization name by design
+    - *API refactor reason {1}* 
+
+I already have items, organizations and facilities. I am scratching the warehouses/docks models for now, just want to get the POC
+working with plenty of unit tests before expanding.
+
+Also may rewrite the API entirely for the reasons i am listing.
+
+*The API tree structure is currently not great. I think it could be better structured or just simplified (E.g. get rid of /core/).*
+*One example of this is that i will need to create context variables to be used in dataProvider, which will change depending on the resource used (!)*
+
+TODO
+refactor [dataProvider] to dynamically route the API according to the resource;
+shipping orders
+purchase orders
+item instances
+---------------------------------------------
+
+

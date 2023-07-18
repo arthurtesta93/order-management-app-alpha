@@ -26,28 +26,28 @@ import ItemIcon from '@mui/icons-material/Inventory';
 import Dashboard from "./dashboard/Dashboard";
 
 export const App = () => (
-  <Admin authProvider={authProvider} dataProvider={dataProvider} dashboard={Dashboard} darkTheme={defaultDarkTheme}>
-    <Resource
-      name="organizations"
-      list={OrganizationsList}
-      create={OrganizationsCreate}
-      edit={OrganizationsEdit}
-      show={OrganizationsShow}
-      icon={OrganizationsIcon}
-    />
-    <Resource
-      name="facilities"
-      list={FacilityList}
-      edit={FacilityEdit}
-      show={FacilityShow}
-      icon={FactoryIcon}
-    />
-    <Resource
-      name="items"
-      list={ItemList}
-      edit={ItemEdit}
-      show={ItemShow}
-      icon={ItemIcon}
-    />
-  </Admin>
+    <Admin authProvider={authProvider} dataProvider={dataProvider} dashboard={Dashboard} darkTheme={defaultDarkTheme}>
+      <Resource
+        name="organizations"
+        list={OrganizationsList}
+        create={OrganizationsCreate}
+        edit={OrganizationsEdit}
+        show={OrganizationsShow}
+        icon={OrganizationsIcon}
+      />
+      <Resource
+        name="facilities"
+        list={FacilityList}
+        edit={FacilityEdit}
+        show={FacilityShow}
+        icon={FactoryIcon}
+      />
+      <Resource
+        name="items"
+        list={ItemList}
+        edit={ItemEdit}
+        show={ItemShow}
+        icon={ItemIcon}
+      />
+    </Admin>
 );

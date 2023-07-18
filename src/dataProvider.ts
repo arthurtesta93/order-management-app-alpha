@@ -2,7 +2,7 @@
 import { DataProvider, fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const apiUrl = 'https://order-management-alpha-z2qvz.ondigitalocean.app/api/core';
+const apiUrl = 'https://order-management-alpha-z2qvz.ondigitalocean.app/api'; // TODO refactor to change URL based on resource (use resource enum)
 const httpClient = fetchUtils.fetchJson;
 
 // TypeScript users must reference the type `DataProvider`
@@ -17,7 +17,7 @@ export const dataProvider: DataProvider = {
             range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
             filter: JSON.stringify(params.filter),
         };
-        const url = `${apiUrl}/${resource}?${stringify(query)}`;
+        const url = `${apiUrl}/core/${resource}?${stringify(query)}`;
 
         return httpClient(url).then(({ headers, json }) => ({
             data: json.results,
