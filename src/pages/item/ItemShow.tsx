@@ -4,7 +4,6 @@ export const ItemShow = () => (
     <Show>
         <SimpleShowLayout>
             <TextField source="commodity" />
-            <TextField source="id" />
             <TextField source="part_number" />
             <NumberField source="count" />
             <TextField source="package_type" />

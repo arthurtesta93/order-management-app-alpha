@@ -1,6 +1,7 @@
 import {
   Admin,
   Resource,
+  defaultDarkTheme,
 } from "react-admin";
 
 import { authProvider } from "./authProvider";
@@ -12,7 +13,8 @@ import { ItemShow } from "./pages/item/ItemShow";
 
 import { OrganizationsList } from "./pages/organizations/OrganizationsList";
 import { OrganizationsShow } from "./pages/organizations/OrganizationsShow";
-import { OrganizationsEdit } from "./pages/organizations/OrganizationsEdit"
+import { OrganizationsEdit } from "./pages/organizations/OrganizationsEdit";
+import { OrganizationsCreate } from "./pages/organizations/OrganizationsCreate";
 
 import { FacilityList } from "./pages/facilities/FacilitiesList";
 import { FacilityEdit } from "./pages/facilities/FacilitiesEdit";
@@ -20,13 +22,15 @@ import { FacilityShow } from "./pages/facilities/FacilitiesShow";
 
 import OrganizationsIcon from "@mui/icons-material/CorporateFare";
 import FactoryIcon from '@mui/icons-material/Factory';
-import UserIcon from '@mui/icons-material/Contacts';
+import ItemIcon from '@mui/icons-material/Inventory';
+import Dashboard from "./dashboard/Dashboard";
 
 export const App = () => (
-  <Admin authProvider={authProvider} dataProvider={dataProvider}>
+  <Admin authProvider={authProvider} dataProvider={dataProvider} dashboard={Dashboard} darkTheme={defaultDarkTheme}>
     <Resource
       name="organizations"
       list={OrganizationsList}
+      create={OrganizationsCreate}
       edit={OrganizationsEdit}
       show={OrganizationsShow}
       icon={OrganizationsIcon}
@@ -43,7 +47,7 @@ export const App = () => (
       list={ItemList}
       edit={ItemEdit}
       show={ItemShow}
-      icon={UserIcon}
+      icon={ItemIcon}
     />
   </Admin>
 );
