@@ -1,18 +1,12 @@
-import { Datagrid, List, NumberField, TextField, useRecordContext } from 'react-admin';
-
-const OrganizationName = () => {
-    const resource = useRecordContext();
-    console.log("facilities", resource);
-    return <>{resource.organization.name}</>;
-
-}
+import { Datagrid, List, NumberField, TextField } from 'react-admin';
+import { OrganizationName } from '../../component/OrganizationData';
 
 
 export const FacilityList = () => (
-    
+
     <List>
-        <Datagrid rowClick="edit">
-            <OrganizationName />
+        <Datagrid rowClick="show">
+            <OrganizationName label="Organization"/>
             <TextField source="name" />
             <TextField source="street" />
             <NumberField source="street_number" />
