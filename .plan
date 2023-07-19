@@ -20,12 +20,25 @@ Also may rewrite the API entirely for the reasons i am listing.
 
 *The API tree structure is currently not great. I think it could be better structured or just simplified (E.g. get rid of /core/).*
 *One example of this is that i will need to create context variables to be used in dataProvider, which will change depending on the resource used (!)*
-
+*API refactor reason {2}*
 TODO
 refactor [dataProvider] to dynamically route the API according to the resource;
 shipping orders
 purchase orders
 item instances
 ---------------------------------------------
+
+Jul 19th
+
++refactored [dataProvider] to dynamically route the API according to resource
+
+It's displaying several issues though, and it will take a lot of work to have the lists properly working for the order-management module.
+
+Mainly, the [id] was badly named (e.g. [purchase_order_id], [shipping_order_id]) which causes react-admin to not be able to infer it when pulling the
+data. It's also just a bad practice, there is no need to be this syntactically absolute with API models. *API refactor reason {3}*.
+
+I will push a little further and see just how much work it will be to have a minimally feasible POC using this API, for learning purposes. It is clear
+though that anything presentable will need a brand new API release.
+----------------------------------------------
 
 

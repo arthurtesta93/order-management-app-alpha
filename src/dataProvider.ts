@@ -5,8 +5,14 @@ import { stringify } from "query-string";
 const apiUrl = 'https://order-management-alpha-z2qvz.ondigitalocean.app/api'; // TODO refactor to change URL based on resource (use resource enum)
 const httpClient = fetchUtils.fetchJson;
 
+const coreResources = [
+    "items",
+    "organizations",
+    "facilities",
+]
 // TypeScript users must reference the type `DataProvider`
 export const dataProvider: DataProvider = {
+    
     getList: (resource, params) => {
         console.log(resource,"resource")
         console.log(params, "params")
@@ -17,10 +23,13 @@ export const dataProvider: DataProvider = {
             range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
             filter: JSON.stringify(params.filter),
         };
-        const url = `${apiUrl}/core/${resource}?${stringify(query)}`;
+        const url = coreResources.includes(resource) ? 
+        `${apiUrl}/core/${resource}?${stringify(query)}` 
+        :
+        `${apiUrl}/order-management/${resource}?${stringify(query)}`;
 
         return httpClient(url).then(({ headers, json }) => ({
-            data: json.results,
+            data: [{id: "shipping_order_id"}, ...json.results],
             total: json.count,
         }));
     },
