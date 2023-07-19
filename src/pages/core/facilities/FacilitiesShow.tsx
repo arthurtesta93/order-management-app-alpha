@@ -1,7 +1,7 @@
 
 import { DateField, NumberField, Show, SimpleShowLayout, TextField, UrlField } from 'react-admin';
 import { Typography } from "@mui/material"
-import { OrganizationName } from '../../component/OrganizationData';
+import { OrganizationName } from '../../../component/OrganizationData';
 
 
 //TODO create box displays for stats? recent actions?

@@ -31,14 +31,20 @@ item instances
 Jul 19th
 
 +refactored [dataProvider] to dynamically route the API according to resource
++moved API settings to local environment
 
 It's displaying several issues though, and it will take a lot of work to have the lists properly working for the order-management module.
 
 Mainly, the [id] was badly named (e.g. [purchase_order_id], [shipping_order_id]) which causes react-admin to not be able to infer it when pulling the
 data. It's also just a bad practice, there is no need to be this syntactically absolute with API models. *API refactor reason {3}*.
+The workaround was to of course use a spread operator to infer the [id] format, but this causes it to infer it on other list queries as well. 
 
 I will push a little further and see just how much work it will be to have a minimally feasible POC using this API, for learning purposes. It is clear
 though that anything presentable will need a brand new API release.
+
+*Night update*
+Rolling back the changes to dataProvider. Was a good exercise making it work, but with a framework as opinionated as react-admin,
+no chance of getting far on it. API refactor starts tomorrow.
 ----------------------------------------------
 
 

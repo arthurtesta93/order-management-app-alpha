@@ -1,5 +1,5 @@
 import { Datagrid, List, NumberField, TextField } from 'react-admin';
-import { OrganizationName } from '../../component/OrganizationData';
+import { OrganizationName } from '../../../component/OrganizationData';
 
 
 export const FacilityList = () => (
